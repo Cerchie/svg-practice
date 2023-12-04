@@ -1,7 +1,26 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="application/javascript" href="style.css"/>
+        <link rel="stylesheet" href="style.css">
     </head>
+    <div class="wrapper">
     <div id="emoji">○</div>
+    <svg id="demo-svg" width="1000" height="500">
+        <path stroke="purple" fill="none" d="M 157 283 L 278 177 L 521 192 L 510 282 Z"></path>
+    </svg>
+    </div>
+    <script src="/node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        let path = anime.path('#demo-svg path');
+
+        anime({
+            targets: '#emoji',
+            translateX: path('x'),
+            translateY: path('y'),
+            easing: 'linear',
+            duration: 5000,
+            loop: true
+        })
+    </script>
 </html>
